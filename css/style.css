@@ -1,0 +1,93 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.scroes {
+  width: 98%;
+  min-height: 100%;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  margin: auto;
+  /* background-color: black; */
+  overflow: visible;
+}
+header {
+  display: flex;
+  justify-content: center;
+}
+header div {
+  /* background-color: aqua; */
+  width: fit-content;
+}
+body {
+  height: 100vh;
+  width: 100vw;
+  overflow: scroll;
+}
+header {
+  position: sticky;
+  background-color: antiquewhite;
+  top: 0;
+}
+header div h1 {
+  line-height: 6.5rem;
+  font-size: 6rem;
+  background-image: linear-gradient(rgb(255, 145, 0), whitesmoke, green);
+  background-clip: text;
+  background-repeat: space;
+  color: transparent;
+}
+
+main {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 5%;
+  row-gap: 10%;
+}
+.card {
+  min-height: 35%;
+  background-color: #fefae0;
+}
+.card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+}
+.card-body p {
+  line-height: 2rem;
+  font-size: 1.5rem;
+}
+.card-header {
+  display: flex;
+  height: 3.5rem;
+  justify-content: center;
+}
+.card h1 {
+  line-height: 3.5rem;
+  font-size: 2rem;
+  position: absolute;
+}
+
+@media only screen and (min-width: 468px) and (max-width: 1058px) {
+  main {
+    grid-template-columns: 1fr;
+    p {
+      font-size: 1rem;
+    }
+  }
+
+  .card h1 {
+    font-size: 1.5rem;
+  }
+}
+@media only screen and (max-width: 1058px) {
+  main {
+    grid-template-columns: 1fr;
+  }
+  .card h1 {
+    font-size: 1.5rem;
+  }
+}
