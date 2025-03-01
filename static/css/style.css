@@ -47,7 +47,7 @@ main {
   row-gap: 10%;
 }
 .card {
-  min-height: 35%;
+  height: 100%;
   background-color: #fefae0;
 }
 .card-body {

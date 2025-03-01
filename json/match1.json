@@ -1,0 +1,52 @@
+[
+  {
+    "team1Name": "mubai Indians",
+    "team2Name": "Chennai Super Kings",
+    "winner": "Mumbai Indians",
+    "tossWinner": "Chennai Super Kings",
+    "team1Score": 185,
+    "team2Score": 172,
+    "team1Wickets": 6,
+    "team2Wickets": 8
+  },
+  {
+    "team1Name": "Royal Challengers Bangalore",
+    "team2Name": "Delhi Capitals",
+    "winner": "Royal Challengers Bangalore",
+    "tossWinner": "Delhi Capitals",
+    "team1Score": 210,
+    "team2Score": 190,
+    "team1Wickets": 4,
+    "team2Wickets": 7
+  },
+  {
+    "team1Name": "Kolkata Knight Riders",
+    "team2Name": "Sunrisers Hyderabad",
+    "winner": "Sunrisers Hyderabad",
+    "tossWinner": "Kolkata Knight Riders",
+    "team1Score": 175,
+    "team2Score": 176,
+    "team1Wickets": 5,
+    "team2Wickets": 6
+  },
+  {
+    "team1Name": "Punjab Kings",
+    "team2Name": "Rajasthan Royals",
+    "winner": "Punjab Kings",
+    "tossWinner": "Rajasthan Royals",
+    "team1Score": 198,
+    "team2Score": 192,
+    "team1Wickets": 6,
+    "team2Wickets": 9
+  },
+  {
+    "team1Name": "Lucknow Super Giants",
+    "team2Name": "Gujarat Titans",
+    "winner": "Gujarat Titans",
+    "tossWinner": "Gujarat Titans",
+    "team1Score": 164,
+    "team2Score": 167,
+    "team1Wickets": 7,
+    "team2Wickets": 5
+  }
+]
