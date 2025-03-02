@@ -3,21 +3,26 @@
   margin: 0;
   box-sizing: border-box;
 }
+body {
+  background-color: #f3f4f6;
+}
 .scroes {
   width: 98%;
   min-height: 100%;
   padding-left: 2rem;
   padding-right: 2rem;
   margin: auto;
-  /* background-color: black; */
   overflow: visible;
 }
 header {
+  text-shadow: 2px 2px 2px white;
   display: flex;
   justify-content: center;
+  background-color: #1e3a8a;
+  position: relative;
+  z-index: 1;
 }
 header div {
-  /* background-color: aqua; */
   width: fit-content;
 }
 body {
@@ -27,28 +32,32 @@ body {
 }
 header {
   position: sticky;
-  background-color: antiquewhite;
   top: 0;
 }
 header div h1 {
   line-height: 6.5rem;
   font-size: 6rem;
-  background-image: linear-gradient(rgb(255, 145, 0), whitesmoke, green);
-  background-clip: text;
-  background-repeat: space;
-  color: transparent;
+  color: #111827;
 }
 
 main {
-  width: 100%;
+  margin: auto;
+  width: 80%;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  position: relative;
+  top: 50px;
   column-gap: 5%;
   row-gap: 10%;
 }
 .card {
-  height: 100%;
-  background-color: #fefae0;
+  padding: 2rem;
+  border-radius: 4px;
+  text-transform: capitalize;
+  text-shadow: 2px 2px 2px black;
+  max-height: 100%;
+  background-color: #1e3a8a;
+  color: white;
 }
 .card-body {
   display: flex;
@@ -69,9 +78,10 @@ main {
   line-height: 3.5rem;
   font-size: 2rem;
   position: absolute;
+  color: #14b8a6;
 }
 
-@media only screen and (min-width: 468px) and (max-width: 1058px) {
+@media only screen and (min-width: 468px) and (max-width: 1500px) {
   main {
     grid-template-columns: 1fr;
     p {
@@ -83,7 +93,7 @@ main {
     font-size: 1.5rem;
   }
 }
-@media only screen and (max-width: 1058px) {
+@media only screen and (max-width: 1500px) {
   main {
     grid-template-columns: 1fr;
   }

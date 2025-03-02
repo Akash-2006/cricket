@@ -9,7 +9,7 @@ export class Card {
       .replaceAll('%team2%', team2Name)
       .replaceAll('%team_winner%', winner)
       .replaceAll('%tossWinner%', tossWinner)
-      .replaceAll('%difference%', team1Score - team2Score)
+      .replaceAll('%difference%', Math.abs(team1Score - team2Score))
       .replaceAll('%team1Wickets%', team1Wickets)
       .replaceAll('%team2Wickets%', team2Wickets);
     return 'succed';
@@ -29,4 +29,4 @@ export const generateCard = () => {
   return cards;
 };
 
-// console.log(generateCard());
+
