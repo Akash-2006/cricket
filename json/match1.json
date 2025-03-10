@@ -48,5 +48,15 @@
     "team2Score": 167,
     "team1Wickets": 7,
     "team2Wickets": 5
+  },
+  {
+    "team1Name": "Lucknow Super Giants",
+    "team2Name": "Gujarat Titans",
+    "winner": "Gujarat Titans",
+    "tossWinner": "Gujarat Titans",
+    "team1Score": 164,
+    "team2Score": 167,
+    "team1Wickets": 7,
+    "team2Wickets": 5
   }
 ]
