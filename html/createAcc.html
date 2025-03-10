@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/css/loginStyle.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form id="loginForm">
+      <h1>Create User</h1>
+      <i class="i1"></i>
+      <i class="i2"></i>
+      <i class="i3"></i>
+      <div class="between">
+        <input
+          type="text"
+          id="name"
+          name="username"
+          placeholder="Username"
+          required
+        />
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Password"
+          required
+        />
+        <button type="submit">Create account</button>
+      </div>
+    </form>
+    <script>
+      document
+        .getElementById("loginForm")
+        .addEventListener("submit", async function (event) {
+          event.preventDefault(); // Prevent page reload
+
+          const userName = document.getElementById("name").value;
+          const password = document.getElementById("password").value;
+          const response = await fetch("http://localhost:8000/createAccount", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ userName, password }),
+          });
+          // const data = await response.json();
+          window.location.replace("http://localhost:8000/");
+        });
+    </script>
+  </body>
+</html>

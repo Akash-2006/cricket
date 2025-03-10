@@ -4,22 +4,63 @@ import { compare } from "../utilites/auticantaion.js";
 
 const data = Deno.readTextFileSync('html/index.html');
 const router = new Router();
-
+const serverVaiables = { studentLogin: false };
 router.get('/', (context) => {
+  if (serverVaiables.studentLogin) {
+    const page = Deno.readTextFileSync('html/existTemplate.html')
+      .replaceAll("%message%", "you already login")
+      .replaceAll('%link%', 'cards')
+      .replaceAll("%returnPoint%", "cards");
+    context.response.body = page;
+    return "already Logged in";
+  }
   const page = Deno.readTextFileSync('html/loginPage.html');
   context.response.body = page;
 });
 
-router.get('/cards', (context) => {
-  const cards = generateCard();
-  context.response.body = data.replaceAll('%cards%', cards.join('\n'));
+router.get('/createAcc', (context) => {
+  const body = Deno.readTextFileSync('html/createAcc.html');
+  context.response.body = body;
 });
 
-router.post("/login", async (context) => {
+router.post("/createAccount", async (context) => {
+  const body = await context.request.body.json();
+  const data = JSON.parse(Deno.readTextFileSync('json/users.json'));
+  if (body.userName in data) {
+    context.body = alert("user already present");
+  }
+  data[body.userName] = body.password;
+  Deno.writeTextFileSync('json/users.json', JSON.stringify(data));
+});
+
+const displayForVaild = (context, login) => {
+  if (!login) {
+    const page = Deno.readTextFileSync('html/existTemplate.html')
+      .replaceAll("%message%", "please login first")
+      .replaceAll('%link%', '')
+      .replaceAll('%returnPoint%', "Back to login");
+    return page;
+  }
+
+  const cards = generateCard();
+  return data.replaceAll('%cards%', cards.join('\n'));
+};
+
+router.get('/cards', (context) => {
+  context.response.body = displayForVaild(context, serverVaiables.studentLogin);
+});
+
+const displayLogin = async (context, login) => {
   const body = await context.request.body.json();
   const validUser = compare(body);
+  serverVaiables.studentLogin = validUser;
   context.response.body = JSON.stringify(validUser);
   context.response.type = 'json';
+  return context;
+};
+
+router.post("/login", async (context) => {
+  await displayLogin(context, serverVaiables.studentLogin);
 });
 
 router.get("/static/:path*", async (context) => {
