@@ -1,11 +1,15 @@
 import { Application, Router, send } from "https://deno.land/x/oak/mod.ts";
 import { generateCard } from "./card.js";
+import details from '../json/match1.json' with {type: 'json'};
 const data = Deno.readTextFileSync('html/index.html');
 const router = new Router();
 
 router.get('/', (context) => {
   const cards = generateCard();
   context.response.body = data.replaceAll('%cards%', cards.join('\n'));
+});
+router.get('/test', (context) => {
+  context.response.body = details;
 });
 
 router.get("/static/:path*", async (context) => {
