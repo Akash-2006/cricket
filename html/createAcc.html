@@ -28,13 +28,26 @@
           required
         />
         <button type="submit">Create account</button>
+        <div class="last">
+          <a href="http://localhost:8000/" style="text-decoration: none"
+            >login</a
+          >
+          <a href="http://localhost:8000/forgetPassword">forget password</a>
+        </div>
       </div>
     </form>
     <script>
+      let usersNames;
+      async function userName() {
+        const users = await fetch("http://localhost:8000/getUsersNames");
+        usersNames = await users.json();
+        // console.log("gii", data);
+      }
+      userName();
       document
         .getElementById("loginForm")
         .addEventListener("submit", async function (event) {
-          event.preventDefault(); // Prevent page reload
+          event.preventDefault();
 
           const userName = document.getElementById("name").value;
           const password = document.getElementById("password").value;
@@ -43,9 +56,16 @@
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ userName, password }),
           });
-          // const data = await response.json();
           window.location.replace("http://localhost:8000/");
         });
+      document.querySelector("#name").addEventListener("keyup", (event) => {
+        if (event.target.value in usersNames) {
+          alert("user already present");
+          document.querySelector("button").disabled = true;
+        } else {
+          document.querySelector("button").disabled = false;
+        }
+      });
     </script>
   </body>
 </html>

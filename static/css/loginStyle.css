@@ -19,13 +19,15 @@ form {
   justify-content: center;
   position: relative;
 }
-
+h1 {
+  text-transform: capitalize;
+}
 input {
   margin-bottom: 20px;
   color: black;
   width: 100%;
   height: 30px;
-  border-radius: 15px;
+  border-radius: 5px;
   border-color: red;
   z-index: 1;
   padding-left: 12px;
@@ -33,6 +35,8 @@ input {
 
 .last {
   display: flex;
+  align-items: center;
+  justify-content: center;
   justify-content: space-between;
   gap: 25px;
   font-size: 1.3rem;
@@ -87,19 +91,18 @@ body {
     transform: rotate(0);
   }
 }
-form:active .i1,
-form:focus-within .i1 {
-  border: 3px solid green;
+form:hover,
+form:focus-within {
+  .i1 {
+    border: 3px solid green;
+  }
+  .i2 {
+    border: 3px solid red;
+  }
+  .i3 {
+    border: 3px solid blue;
+  }
 }
-form:active .i2,
-form:focus-within .i2 {
-  border: 3px solid red;
-}
-form:active .i3,
-form:focus-within .i3 {
-  border: 3px solid blue;
-}
-
 @media screen and (max-width: 600px) {
   form {
     width: 300px;
@@ -113,6 +116,7 @@ form:focus-within .i3 {
 a {
   color: whitesmoke;
   text-decoration: none;
+  text-transform: capitalize;
 }
 
 #login {
@@ -125,4 +129,17 @@ a {
   border: 0;
   color: azure;
   background-image: linear-gradient(90deg, red, rgba(255, 0, 0, 0.42));
+}
+
+button {
+  border-radius: 15px;
+  border: 0;
+  height: 2rem;
+  background-color: #0d6efd;
+  color: white;
+  font-weight: 700;
+}
+
+button:disabled {
+  background-color: #617fad;
 }

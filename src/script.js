@@ -5,6 +5,7 @@ import { compare } from "../utilites/auticantaion.js";
 const data = Deno.readTextFileSync('html/index.html');
 const router = new Router();
 const serverVaiables = { studentLogin: false };
+
 router.get('/', (context) => {
   if (serverVaiables.studentLogin) {
     const page = Deno.readTextFileSync('html/existTemplate.html')
@@ -14,6 +15,7 @@ router.get('/', (context) => {
     context.response.body = page;
     return "already Logged in";
   }
+
   const page = Deno.readTextFileSync('html/loginPage.html');
   context.response.body = page;
 });
@@ -29,6 +31,7 @@ router.post("/createAccount", async (context) => {
   if (body.userName in data) {
     context.body = alert("user already present");
   }
+
   data[body.userName] = body.password;
   Deno.writeTextFileSync('json/users.json', JSON.stringify(data));
 });
@@ -63,10 +66,21 @@ router.post("/login", async (context) => {
   await displayLogin(context, serverVaiables.studentLogin);
 });
 
+router.get("/getUsersNames", async (context) => {
+  const userNames = JSON.parse(Deno.readTextFileSync('json/users.json'));
+  context.response.body = JSON.stringify(userNames);
+  context.response.type = 'json';
+});
+
 router.get("/static/:path*", async (context) => {
   await send(context, context.params.path, {
     root: `${Deno.cwd()}/static`,
   });
+});
+
+router.get("/forgetPassword", async (context) => {
+  const page = Deno.readTextFileSync('html/forgetPassword.html');
+  context.response.body = page;
 });
 
 const server = new Application;
